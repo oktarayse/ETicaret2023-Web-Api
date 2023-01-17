@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" }))
+    {
+    @Html.AntiForgeryToken()
+
+      <ul class="nav navbar-nav navbar-right">
+
+             <li><span class="glyphicon glyphicon-shopping-cart"style="color: darkslateblue ">@Html.ActionLink("Sepet", "Index", "Sepet",null,new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+             <li><span class="glyphicon glyphicon-user"style="color: darkslateblue ">@Html.ActionLink("Merhaba" + User.Identity.GetUserName(), "Index", "Manage",  new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+             <li><span class="glyphicon glyphicon-log-out"style="color: darkslateblue "><a href="javascript:document.getElementById('logoutForm').submit()" style="background-color:chocolate;text-decoration:none ; color:antiquewhite">Çıkış</a></span></li>
+
+      </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Kayıt Ol", "Register", "Account",  new { id = "registerLink" }, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</li>
+        <li>@Html.ActionLink("Giriş", "Login", "Account", new { id = "loginLink" }, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</li>
+    </ul>
+}

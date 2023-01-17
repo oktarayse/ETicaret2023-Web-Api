@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:chocolate">
+        <div class="container">
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<ul>
+                    <li><span class="glyphicon glyphicon-certificate">@Html.ActionLink("ETicaret", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</span></li>
+                </ul>*@
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li><span class="glyphicon glyphicon-home" style="color:darkslateblue " >@Html.ActionLink("Anasayfa", "Index", "Home", null,new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+                    <li><span class="glyphicon glyphicon-book"style="color: darkslateblue ">@Html.ActionLink("Hakkında", "About", "Home",null, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+                    <li><span class="glyphicon glyphicon-phone-alt"style="color: darkslateblue ">@Html.ActionLink("İletişim", "Contact", "Home",null, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+                    <li><span class="glyphicon glyphicon-list"style="color: darkslateblue ">@Html.ActionLink("Kategoriler", "Index", "Kategoriler",null, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" })</span></li>
+                    <li><span class="glyphicon glyphicon-folder-open"style="color: darkslateblue ">@Html.ActionLink("Ürünler", "Index", "Urunler",null, new { @style = "background-color:chocolate;text-decoration:none ; color:antiquewhite" }) </span></li>
+                    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </div>
+    </div> 
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
